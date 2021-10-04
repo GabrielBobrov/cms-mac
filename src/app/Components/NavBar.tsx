@@ -13,7 +13,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav>
+    <>
       <ul>
         <li>
           <a onClick={handleAnchorClick} href="/">
@@ -26,6 +26,6 @@ export default function NavBar() {
           </a>
         </li>
       </ul>
-    </nav>
+    </>
   );
 }
