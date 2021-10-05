@@ -1,4 +1,6 @@
+import Logo from "../../app/Components/Logo";
 import NavBar from "../../app/Components/NavBar";
+import SessionController from "../../app/Components/SessionController";
 import * as DL from "./Default.layout.styles";
 
 interface DefaultLayoutProps {
@@ -8,13 +10,21 @@ interface DefaultLayoutProps {
 function DefaultLayout(props: DefaultLayoutProps) {
   return (
     <DL.Wrapper>
-      <DL.Header>Header</DL.Header>
+      <DL.Header>
+        <Logo />
+      </DL.Header>
       <DL.Main>
         <DL.Navigation>
           <NavBar />
         </DL.Navigation>
         <DL.FeaturedContent> {props.children}</DL.FeaturedContent>
-        <DL.Aside> aside</DL.Aside>
+        <DL.Aside>
+          {" "}
+          <SessionController
+            name="Gabriel Bobrov"
+            description="Progamador há 1 ano"
+          />
+        </DL.Aside>
       </DL.Main>
     </DL.Wrapper>
   );
