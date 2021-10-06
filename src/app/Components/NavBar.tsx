@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export default function NavBar() {
@@ -18,10 +18,14 @@ export default function NavBar() {
     <>
       <List>
         <Item>
-          <Link to="/">Home</Link>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
         </Item>
         <Item>
-          <Link to="/contato">Contato</Link>
+          <NavLink exact to="/contato">
+            Contato
+          </NavLink>
         </Item>
       </List>
     </>
@@ -40,5 +44,9 @@ const Item = styled.li`
   a {
     text-decoration: none;
     color: #274060;
+
+    &.active {
+      color: #09f;
+    }
   }
 `;

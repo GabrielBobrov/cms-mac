@@ -1,7 +1,9 @@
+import DefaultLayout from "../../layouts/Default";
+
 export default function Contact() {
   return (
-    <div>
+    <DefaultLayout>
       <h1>Contact</h1>
-    </div>
+    </DefaultLayout>
   );
 }
