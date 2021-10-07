@@ -1,4 +1,4 @@
-import DefaultLayout from "../../layouts/Default";
+import DefaultLayout from "../Layouts/Default";
 
 export default function Contact() {
   return (
