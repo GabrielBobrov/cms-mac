@@ -26,7 +26,7 @@ export default function PostForm() {
       />
       <PostFormSubmitWrappe>
         <WordPriceCounter pricePerWord={0.25} wordsCount={40} />
-        <Button variant="primary" label="Salvasr post" />
+        <Button variant="primary" label="Salvar post" />
       </PostFormSubmitWrappe>
     </PostFormWrappe>
   );
