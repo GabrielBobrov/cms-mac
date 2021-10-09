@@ -4,17 +4,15 @@ import "./core/imports.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./app/views/Home.view";
-import NotFound404 from "./app/views/NotFound404.view";
-import Contact from "./app/views/Contact.view";
-import UserView from "./app/views/User.view";
 import GlobalStyles from "./core/globalStyles";
+import EditorsListView from "./app/views/EditorsList.view";
+import NotFound404 from "./app/views/NotFound404.view";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
-        <Route path={"/"} exact component={Home} />
-        <Route path={"/contato"} exact component={Contact} />
-        <Route path={"/usuario/:userId"} component={UserView} />
+        <Route path="/" exact component={Home} />
+        <Route path="/editores" exact component={EditorsListView} />
         <Route component={NotFound404} />
       </Switch>
       <GlobalStyles />

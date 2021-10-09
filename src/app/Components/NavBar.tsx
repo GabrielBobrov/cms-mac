@@ -23,8 +23,8 @@ export default function NavBar() {
           </NavLink>
         </Item>
         <Item>
-          <NavLink exact to="/contato">
-            Contato
+          <NavLink exact to="/editores">
+            Editores
           </NavLink>
         </Item>
       </List>
