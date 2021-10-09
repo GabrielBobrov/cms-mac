@@ -27,6 +27,11 @@ export default function NavBar() {
             Editores
           </NavLink>
         </Item>
+        <Item>
+          <NavLink exact to="/posts/criar">
+            Novo Post
+          </NavLink>
+        </Item>
       </List>
     </>
   );
