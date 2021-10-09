@@ -7,7 +7,7 @@ const FAKE_DATA = {
     "Março",
     "Abril",
     "Maio",
-    "Junhoo",
+    "Junho",
     "Julho",
     "Agosto",
     "Setembro",
