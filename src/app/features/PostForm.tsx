@@ -14,7 +14,7 @@ export default function PostForm() {
     <PostFormWrappe>
       <Input
         label="titulo"
-        placeholder="e.g.: Como fiquei rico aprendendo React"
+        placeholder="e.g.: Como fiqueei rico aprendendo React"
       />
       <ImageUpload label="Thumbnail do post" />
       <MarkdownEditor />
