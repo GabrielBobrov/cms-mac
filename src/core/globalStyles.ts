@@ -1,3 +1,4 @@
+import { transparentize } from "polished";
 import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle` * {
     margin: 0;
@@ -9,5 +10,8 @@ body {
     font-family: 'Lato', sans-serif;
     background-color: #F3F8FA;
     columns: #274760;
+}
+.confirm-overlay{
+    background-color: ${transparentize(0.2, "#274060")};
 }
 `;
