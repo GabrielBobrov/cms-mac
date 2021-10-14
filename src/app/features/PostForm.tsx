@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Tag } from "react-tag-input";
+import info from "../../core/utils/info";
 import styled from "styled-components";
 import countWordsInMarkdown from "../../core/utils/contWordsInMarkdown";
 import Button from "../Components/Button/Button";
@@ -12,8 +13,18 @@ import WordPriceCounter from "../Components/WordPriceCounter";
 export default function PostForm() {
   const [tags, setTags] = useState<Tag[]>([]);
   const [body, setBody] = useState("");
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    info({
+      title: "Post salvo com sucesso",
+      description: "Você acabou de salvar o post",
+    });
+  }
+
   return (
-    <PostFormWrappe>
+    <PostFormWrappe onSubmit={handleSubmit}>
       <Input
         label="titulo"
         placeholder="e.g.: Como fiquei rico aprendendo React"
@@ -41,7 +52,7 @@ const PostFormWrappe = styled.form`
   flex-direction: column;
   gap: 24px;
 `;
-const PostFormSubmitWrappe = styled.form`
+const PostFormSubmitWrappe = styled.div`
   display: flex;
   justify-content: space-between;
 `;
