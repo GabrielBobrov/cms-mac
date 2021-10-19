@@ -24,6 +24,17 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+function getDataFromApi() {
+  fetch("http://localhost:8080/posts")
+    .then((res) => res.json())
+    .then((posts) => {
+      console.log(posts);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+}
+getDataFromApi();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
