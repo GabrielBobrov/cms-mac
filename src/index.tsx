@@ -9,6 +9,7 @@ import EditorsListView from "./app/views/EditorsList.view";
 import NotFound404 from "./app/views/NotFound404.view";
 import PostCreateView from "./app/views/PostCreate.view";
 import EditorProfileView from "./app/views/EditorProfile.view";
+import http from "./core/http";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -26,26 +27,11 @@ ReactDOM.render(
 );
 async function getDataFromApi() {
   try {
-    const response = await fetch("http://localhost:8080/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: "Olá, mundo",
-        body: "Lorem Ipsum dolor sit amet",
-      }),
-    });
-    console.log("response:", response);
-    if (response.status >= 400) {
-      throw new Error(await response.json());
-    }
-    const posts = await response.json();
-    console.log("Sucesso");
-    console.log(posts);
+    const response = await http.get("http://localhost:8080/posts");
+    const post = response.data;
+    console.log(post);
   } catch (error) {
-    console.log("Houve erro");
-    console.log(error);
+    console.log("Houve erro", error.message);
   }
 }
 
