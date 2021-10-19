@@ -24,16 +24,31 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-function getDataFromApi() {
-  fetch("http://localhost:8080/posts")
-    .then((res) => res.json())
-    .then((posts) => {
-      console.log(posts);
-    })
-    .catch((error) => {
-      console.log(error.message);
+async function getDataFromApi() {
+  try {
+    const response = await fetch("http://localhost:8080/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: "Olá, mundo",
+        body: "Lorem Ipsum dolor sit amet",
+      }),
     });
+    console.log("response:", response);
+    if (response.status >= 400) {
+      throw new Error(await response.json());
+    }
+    const posts = await response.json();
+    console.log("Sucesso");
+    console.log(posts);
+  } catch (error) {
+    console.log("Houve erro");
+    console.log(error);
+  }
 }
+
 getDataFromApi();
 
 // If you want to start measuring performance in your app, pass a function
