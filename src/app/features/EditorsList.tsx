@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { User } from "../../sdk/@types";
 import userService from "../../sdk/services/User.service";
+import getEditorDesciption from "../../sdk/utils/getEditorDescription";
 import Profile from "../Components/Profile";
 
 export default function EditorsList() {
@@ -18,7 +19,7 @@ export default function EditorsList() {
           <Profile
             editorId={editor.id}
             name={editor.name}
-            description={"Editor ha X meses"}
+            description={getEditorDesciption(new Date(editor.createdAt))}
             avatarUrl={editor.avatarUrls.small}
           />
         );
