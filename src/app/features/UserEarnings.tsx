@@ -6,10 +6,19 @@ import ValueDescriptor from "../Components/ValueDescriptor/ValueDescriptor";
 
 export default function UserEarnings() {
   const [user, setUser] = useState<User.Detailed>();
+  const [error, setError] = useState<Error>();
 
   useEffect(() => {
-    userService.getDetailedUser(7).then(setUser);
+    userService
+      .getDetailedUser(7)
+      .then(setUser)
+      .catch((error) => {
+        setError(new Error(error.message));
+      });
   }, []);
+  if (error) {
+    throw error;
+  }
   if (!user) {
     return null;
   }

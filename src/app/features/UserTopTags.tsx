@@ -6,10 +6,18 @@ import CircleChart from "../Components/CircleChart";
 
 export default function UserTopTags() {
   const [topTags, setTop3Tags] = useState<Metric.EditorTagRatio>([]);
+  const [error, setError] = useState<Error>();
 
   useEffect(() => {
-    MetricService.getTop3Tags().then(setTop3Tags);
+    MetricService.getTop3Tags()
+      .then(setTop3Tags)
+      .catch((error) => {
+        setError(new Error(error.message));
+      });
   }, []);
+  if (error) {
+    throw error;
+  }
   return (
     <UserTopTagsWrapper>
       {topTags.map((tag, i) => {

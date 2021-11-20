@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import withBounday from "../../core/hoc/withBoundary";
 import MetricService from "../../sdk/services/Metric.service";
 import transformEditorMonthlyEarningsIntoChartJs from "../../sdk/utils/transformEditorMonthlyEarningsIntoChartJs";
 import Chart, { ChartProps } from "../Components/Chart/Chart";
 
-export default function UserPerformance() {
+function UserPerformance() {
   const [editorEarnings, setEditorEarings] = useState<ChartProps["data"]>();
   const [error, setError] = useState<Error>();
 
@@ -27,3 +28,5 @@ export default function UserPerformance() {
     />
   );
 }
+
+export default withBounday(UserPerformance, "batata");

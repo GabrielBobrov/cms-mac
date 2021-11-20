@@ -19,12 +19,14 @@ export default function Home() {
           gap: "32px",
         }}
       >
-        <UserTopTags />
-        <UserEarnings />
+        <ErrorBoundary component="tags">
+          <UserTopTags />
+        </ErrorBoundary>
+        <ErrorBoundary component="ganhos">
+          <UserEarnings />
+        </ErrorBoundary>
       </div>
-      <ErrorBoundary component="performance">
-        <UserPerformance />
-      </ErrorBoundary>
+      <UserPerformance />
       <ErrorBoundary component="lista de posts">
         <PostList />
       </ErrorBoundary>
